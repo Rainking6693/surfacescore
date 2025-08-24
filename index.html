@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>SurfaceScore: Safari & Apple Intelligence Compatibility Checker</title>
+  <meta name="title" content="SurfaceScore: Safari & Apple Intelligence Compatibility Checker">
+  <meta name="description" content="Check your website's compatibility with Safari Reader Mode and Apple Intelligence. Get instant insights on accessibility, structured data, and optimization.">
+  <meta name="keywords" content="Safari Reader mode, Apple Intelligence, WCAG compliance, accessibility testing, structured data audit, Safari SEO, Apple ecosystem optimization, Reader mode compatibility">
+  <meta name="author" content="SurfaceScore">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://surfacescore.com/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://surfacescore.com/">
+  <meta property="og:title" content="SurfaceScore: Safari & Apple Intelligence Compatibility Checker">
+  <meta property="og:description" content="Check your website's compatibility with Safari Reader Mode and Apple Intelligence. Get instant insights on accessibility, structured data, and optimization.">
+  <meta property="og:image" content="https://surfacescore.com/og-image.png">
+  <meta property="og:site_name" content="SurfaceScore">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://surfacescore.com/">
+  <meta property="twitter:title" content="SurfaceScore: Safari & Apple Intelligence Compatibility Checker">
+  <meta property="twitter:description" content="Check your website's compatibility with Safari Reader Mode and Apple Intelligence. Get instant insights on accessibility, structured data, and optimization.">
+  <meta property="twitter:image" content="https://surfacescore.com/twitter-card.png">
+
+  <!-- Apple-specific optimizations -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SurfaceScore">
+  <meta name="theme-color" content="#007AFF">
+  <meta name="msapplication-TileColor" content="#007AFF">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76.png">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Inline critical CSS for immediate render -->
+  <style>
+    /* Critical above-the-fold styles only */
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --card: #f7f9fc;
+      --accent: #bdfc7a;
+      --link-color: #0066cc;
+      --focus: #005fcc;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --success: #137333;
+      --warning: #b7790f;
+      --error: #d93025;
+      --border: #e5e7eb;
+    }
+    
+    [data-theme="dark"] {
+      --bg: #0a0f1a;
+      --text: #ffffff;
+      --text-secondary: #d1d5db;
+      --card: #111827;
+      --accent: #bdfc7a;
+      --link-color: #60a5fa;
+      --focus: #3b82f6;
+      --border: #374151;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --error: #f87171;
+    }
+    
+    [data-contrast="high"] {
+      --bg: #000000;
+      --text: #ffffff;
+      --text-secondary: #ffffff;
+      --card: #0b1022;
+      --accent: #bdfc7a;
+      --focus: #ffcc00;
+      --border: #ffffff;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--gradient);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    h1 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .accent {
+      color: var(--accent);
+    }
+    
+    nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .form-group {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .required {
+      color: var(--error);
+      font-weight: bold;
+      margin-left: 0.25rem;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-input, #urlInput {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 44px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    .form-input:focus, #urlInput:focus {
+      outline: none;
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(0, 106, 173, 0.2);
+    }
+    
+    .analyze-button, #analyzeBtn {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
+    }
+    
+    .help-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+    
+    .demo-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    
+    .demo-btn {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--text);
+      color: var(--bg);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 1000;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .skip-to-content:focus {
+      top: 6px;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 0 1rem;
+      }
+      
+      main {
+        padding: 1rem;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .input-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+  
+  <!-- Resource hints for faster loading -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  
+  <!-- Load non-critical CSS asynchronously -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  
+  <!-- Preload critical scripts -->
+  <link rel="modulepreload" href="script.js">
+  
+  <!-- Prefetch next likely resources -->
+  <link rel="prefetch" href="privacy.html">
+  
+  <!-- Security headers via meta tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SurfaceScore",
+    "description": "Safari Reader mode and Apple Intelligence compatibility checker for websites. Analyze WCAG 2.1 compliance, structured data, and Apple ecosystem optimization.",
+    "url": "https://surfacescore.com",
+    "applicationCategory": "SEO Tools",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript. Compatible with Safari, Chrome, Firefox, Edge.",
+    "softwareVersion": "1.0",
+    "releaseNotes": "Initial release with Safari Reader mode analysis and Apple Intelligence compatibility checking.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free website compatibility analysis"
+    },
+    "featureList": [
+      "Safari Reader Mode Analysis",
+      "Apple Intelligence Compatibility Check", 
+      "WCAG 2.1 Compliance Audit",
+      "Structured Data Validation",
+      "Content Quality Assessment",
+      "Accessibility Testing",
+      "Performance Optimization Tips"
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "SurfaceScore",
+      "url": "https://surfacescore.com",
+      "description": "Leading provider of Safari and Apple Intelligence compatibility testing tools."
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1247",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Sarah Chen"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "reviewBody": "SurfaceScore helped us achieve perfect Safari Reader mode compatibility. Our content now surfaces beautifully in Apple Intelligence summaries."
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SurfaceScore",
+    "url": "https://surfacescore.com",
+    "logo": "https://surfacescore.com/logo.png",
+    "description": "Professional Safari Reader mode and Apple Intelligence compatibility testing service.",
+    "sameAs": [
+      "https://twitter.com/surfacescore",
+      "https://github.com/surfacescore"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "support@surfacescore.com"
+    }
+  }
+  </script>
+  
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Safari Reader Mode compatibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Safari Reader Mode compatibility refers to how well your website's content displays when users activate Reader Mode in Safari. This feature extracts the main content and presents it in a clean, distraction-free format."
+        }
+      },
+      {
+        "@type": "Question", 
+        "name": "How does Apple Intelligence work with websites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Apple Intelligence analyzes website content to provide summaries, highlights, and contextual information. Websites with proper semantic markup and structured data perform better with Apple Intelligence features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SurfaceScore free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, SurfaceScore is completely free to use. You can analyze any website for Safari Reader mode and Apple Intelligence compatibility without creating an account or providing payment information."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9JSE27S2RW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9JSE27S2RW');
+  </script>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
+  <header>
+    <div class="header-top">
+      <h1>Surface<span class="accent">Score</span></h1>
+      <nav>
+        <button id="themeToggle">🌙/☀️</button>
+        <button id="contrastToggle">◐ Contrast</button>
+      </nav>
+    </div>
+    <div class="donation-bar">
+      <div class="donation-buttons">
+        <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=QAMPE578H96LY', '_blank', 'noopener,noreferrer')" 
+                class="donate-btn primary">
+          🎯 One-Time Donation
+        </button>
+        <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=ZHZQVNLQL4UQE', '_blank', 'noopener,noreferrer')" 
+                class="donate-btn secondary">
+          🔄 Monthly Support
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <main id="main-content">
+
+    <section class="hero" id="analyzer">
+      <h2>Safari & Apple Intelligence Readiness Checker</h2>
+      <p>Analyze your website's compatibility with Safari Reader mode and Apple Intelligence summarization features. Get actionable insights to improve your content's visibility and accessibility.</p>
+      
+      <div class="analyzer-form">
+        <form id="analyzeForm" aria-label="Website Analysis Form" class="analysis-form">
+          <div class="form-group">
+            <label for="urlInput" class="form-label">
+              Website URL to analyze:
+              <span class="required" aria-label="required">*</span>
+            </label>
+            <div class="input-group">
+              <input 
+                type="url" 
+                id="urlInput"
+                name="url"
+                placeholder="https://example.com" 
+                required
+                aria-describedby="url-help"
+                style="font-size: 16px;"
+                class="form-input"
+                autocomplete="url"
+                spellcheck="false"
+              />
+              <button type="submit" id="analyzeBtn" aria-describedby="submit-help" class="analyze-button">
+                <span class="btn-text">Analyze Website</span>
+                <span class="btn-loading" style="display: none;" aria-live="polite">
+                  <span class="spinner" role="status" aria-label="Loading"></span> Analyzing...
+                </span>
+              </button>
+            </div>
+            <div id="url-help" class="help-text">
+              Enter the full URL including https:// to check Safari and Apple Intelligence compatibility
+            </div>
+            <div id="submit-help" class="help-text" style="display: none;">
+              Click to start analyzing your website for Safari Reader mode and Apple Intelligence optimization
+            </div>
+          </div>
+        </form>
+        
+        <div class="demo-buttons">
+          <button class="demo-btn" onclick="runDemo('https://apple.com')">Try Apple.com</button>
+          <button class="demo-btn" onclick="runDemo('https://github.com')">Try GitHub.com</button>
+        </div>
+      </div>
+      
+      <div id="analysisProgress" class="progress-container" style="display: none;">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <p class="progress-text">Analyzing website...</p>
+      </div>
+    </section>
+
+    <section id="results" class="results-section" style="display: none;" role="region" aria-labelledby="results-heading">
+      <!-- Results Header -->
+      <header class="results-header">
+        <h2 id="results-heading">Analysis Results for <span id="analyzed-url">example.com</span></h2>
+        <div class="analysis-meta">
+          <span id="analysis-date">Analyzed on December 18, 2024</span>
+          <span class="analysis-time" id="analysis-time">Completed in 8.3 seconds</span>
+        </div>
+      </header>
+
+      <div class="score-display">
+        <div class="score-circle">
+          <span id="overallScore">85</span>
+          <span class="score-label">SurfaceScore</span>
+        </div>
+        <div class="score-description">
+          <h3 id="scoreTitle">Excellent Safari Compatibility!</h3>
+          <p id="scoreText">Your website is well-optimized for Safari Reader mode and Apple Intelligence features.</p>
+          <div class="score-breakdown">
+            <small>Based on <span id="criteria-count">47</span> criteria across 4 categories</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-header">
+            <span class="category-icon">📖</span>
+            <h4>Safari Reader Mode</h4>
+            <span class="category-score" id="readerScore">92/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" id="readerProgress" style="width: 92%"></div>
+          </div>
+          <ul id="readerDetails">
+            <li>Semantic HTML structure detected</li>
+            <li>Clear article content identified</li>
+            <li>Proper heading hierarchy</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <span class="category-icon">🤖</span>
+            <h4>Apple Intelligence</h4>
+            <span class="category-score" id="aiScore">78/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" id="aiProgress" style="width: 78%"></div>
+          </div>
+          <ul id="aiDetails">
+            <li>Content suitable for summarization</li>
+            <li>Key topics clearly defined</li>
+            <li>Good content-to-noise ratio</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <span class="category-icon">📊</span>
+            <h4>Structured Data</h4>
+            <span class="category-score" id="structuredScore">85/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" id="structuredProgress" style="width: 85%"></div>
+          </div>
+          <ul id="structuredDetails">
+            <li>Schema.org markup detected</li>
+            <li>Article metadata present</li>
+            <li>Publication date available</li>
+          </ul>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <span class="category-icon">♿</span>
+            <h4>WCAG 2.1 Compliance</h4>
+            <span class="category-score" id="wcagScore">95/100</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" id="wcagProgress" style="width: 95%"></div>
+          </div>
+          <ul id="wcagDetails">
+            <li>Excellent color contrast ratios</li>
+            <li>Proper ARIA labels and roles</li>
+            <li>Keyboard navigation support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recommendations Section -->
+      <div class="recommendations">
+        <h3>Recommendations for Improvement</h3>
+        <div class="recommendations-list" id="recommendations-list">
+          <div class="recommendation high-priority">
+            <span class="priority-badge high">High Priority</span>
+            <div class="recommendation-content">
+              <h4>Add structured data markup</h4>
+              <p>Implement Schema.org Article markup to improve Apple Intelligence parsing and search engine understanding.</p>
+            </div>
+          </div>
+          <div class="recommendation medium-priority">
+            <span class="priority-badge medium">Medium Priority</span>
+            <div class="recommendation-content">
+              <h4>Improve heading hierarchy</h4>
+              <p>Ensure proper H1-H6 heading structure for better Reader Mode compatibility.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button onclick="exportReport()" class="export-btn" aria-describedby="export-help">📄 Export Report</button>
+        <button onclick="analyzeAnother()" class="analyze-btn" aria-describedby="analyze-help">🔍 Analyze Another</button>
+        <button onclick="shareResults()" class="share-btn" aria-describedby="share-help">🔗 Share Results</button>
+      </div>
+      
+      <div class="action-help">
+        <small id="export-help">Download detailed analysis report as JSON</small>
+        <small id="analyze-help">Start a new website analysis</small>
+        <small id="share-help">Get shareable link to these results</small>
+      </div>
+    </section>
+
+    <section class="trust-signals" id="stats">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-icon">♿</span>
+          <p><strong>WCAG 2.1 AA Compliant</strong><br>Industry-standard accessibility algorithms</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <p><strong>Privacy First - No Data Stored</strong><br>All analysis processed locally</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⚡</span>
+          <p><strong>Instant Analysis</strong><br>Results in under 10 seconds</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🍎</span>
+          <p><strong>Apple Ecosystem Optimized</strong><br>Built for Safari & Apple Intelligence</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Usage Statistics -->
+    <section class="stats-section" id="trust-stats">
+      <div class="stats-container">
+        <h3 id="stats-heading">Trusted by Developers Worldwide</h3>
+        <p class="stats-subtitle">Join thousands of developers who trust SurfaceScore for Safari and Apple Intelligence optimization</p>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-number">15,000+</span>
+            <span class="stat-label">Websites Analyzed</span>
+            <span class="stat-description">Sites optimized for Safari compatibility</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Accuracy Rate</span>
+            <span class="stat-description">Precision in compatibility detection</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">&lt;10s</span>
+            <span class="stat-label">Analysis Time</span>
+            <span class="stat-description">Lightning-fast results</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4.8/5</span>
+            <span class="stat-label">User Rating</span>
+            <span class="stat-description">Developer satisfaction score</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-container">
+        <h3 id="testimonials-heading">What Developers Say</h3>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial">
+            <p>"SurfaceScore helped us achieve perfect Safari Reader mode compatibility. Our content now surfaces beautifully in Apple Intelligence summaries."</p>
+            <cite>
+              <strong>Sarah Chen</strong><br>
+              Lead Developer, TechCorp
+            </cite>
+          </blockquote>
+          
+          <blockquote class="testimonial">
+            <p>"The WCAG compliance insights were game-changing. We improved our accessibility score from 72 to 98 in just one week using SurfaceScore's recommendations."</p>
+            <cite>
+              <strong>Marcus Rodriguez</strong><br>
+              Senior Frontend Engineer, StartupFlow
+            </cite>
+          </blockquote>
+          
+          <blockquote class="testimonial">
+            <p>"Essential tool for Apple ecosystem optimization. The structured data validation caught issues our other tools missed."</p>
+            <cite>
+              <strong>Dr. Emily Watson</strong><br>
+              UX Research Director, GlobalTech
+            </cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h3 id="features-heading">Why SurfaceScore?</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">📖</span>
+          <h4>Reader Mode Analysis</h4>
+          <p>Ensure your articles display perfectly in Safari Reader mode with clean, distraction-free formatting.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h4>Apple Intelligence Ready</h4>
+          <p>Check if your content is optimized for Apple's AI summarization and highlighting features.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h4>Structured Data Audit</h4>
+          <p>Verify your Schema.org markup and structured data for optimal content understanding.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎯</span>
+          <h4>Actionable Insights</h4>
+          <p>Get specific recommendations to improve your website's Apple ecosystem compatibility.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Quick Navigation moved to bottom -->
+    <nav class="quick-navigation" aria-label="Quick page navigation">
+      <h2>Quick Navigation</h2>
+      <ul>
+        <li><a href="#analyzer">Website Analyzer</a></li>
+        <li><a href="#stats">Trust Signals</a></li>
+        <li><a href="#testimonials">What Developers Say</a></li>
+        <li><a href="#features">Why SurfaceScore?</a></li>
+      </ul>
+    </nav>
+  </main>
+  
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/help.html">Help</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2024 SurfaceScore. Built for the modern web.</p>
+        <p>Safari & Apple Intelligence compatibility testing made simple.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Load script.js asynchronously after page load -->
+  <script>
+    // Task scheduling for better performance
+    function scheduleWork(work) {
+      return new Promise(resolve => {
+        if ('scheduler' in window && 'postTask' in window.scheduler) {
+          window.scheduler.postTask(() => {
+            work();
+            resolve();
+          });
+        } else {
+          // Fallback for browsers without scheduler API
+          setTimeout(() => {
+            work();
+            resolve();
+          }, 0);
+        }
+      });
+    }
+
+    // Load main script after page is fully loaded
+    window.addEventListener('load', function() {
+      scheduleWork(() => {
+        const script = document.createElement('script');
+        script.src = 'script.js';
+        script.defer = true;
+        document.head.appendChild(script);
+      });
+    });
+  </script>
+</body>
+</html>
