@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurological SEO Analyzer - SurfaceScore Phase 5</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .phase-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+    
+    .main-content {
+      padding: 40px;
+    }
+    
+    .analyzer-section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .brain-icon {
+      font-size: 2rem;
+    }
+    
+    .input-group {
+      margin-bottom: 25px;
+    }
+    
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 8px;
+    }
+    
+    .input-group input, .input-group select, .input-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .analyze-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+      width: 100%;
+    }
+    
+    .analyze-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .analyze-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .results-container {
+      margin-top: 40px;
+      display: none;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+    
+    .metric-card {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      border-left: 5px solid #667eea;
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    
+    .metric-label {
+      font-size: 1rem;
+      color: #7f8c8d;
+      font-weight: 500;
+    }
+    
+    .metric-improvement {
+      font-size: 0.9rem;
+      color: #27ae60;
+      margin-top: 5px;
+    }
+    
+    .analysis-details {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 25px;
+    }
+    
+    .detail-section {
+      margin-bottom: 25px;
+    }
+    
+    .detail-title {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .recommendations-list {
+      list-style: none;
+    }
+    
+    .recommendation-item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #e74c3c;
+    }
+    
+    .recommendation-item.high {
+      border-left-color: #e74c3c;
+    }
+    
+    .recommendation-item.medium {
+      border-left-color: #f39c12;
+    }
+    
+    .recommendation-item.low {
+      border-left-color: #27ae60;
+    }
+    
+    .recommendation-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .recommendation-description {
+      color: #7f8c8d;
+      line-height: 1.5;
+    }
+    
+    .heatmap-container {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 25px;
+      text-align: center;
+    }
+    
+    .heatmap-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                  linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    .neurodiversity-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .neurodiversity-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .neurodiversity-option input[type="checkbox"] {
+      width: auto;
+    }
+    
+    .loading-spinner {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    
+    .feature-description {
+      color: #7f8c8d;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧠 Neurological SEO Analyzer</h1>
+      <p>Revolutionary optimization based on neuroscience and cognitive psychology</p>
+      <div class="phase-badge">Phase 5: Neurological SEO & Cognitive Optimization</div>
+    </div>
+    
+    <div class="main-content">
+      <!-- Website Analysis Section -->
+      <div class="analyzer-section">
+        <h2 class="section-title">
+          <span class="brain-icon">🔬</span>
+          Website Neurological Analysis
+        </h2>
+        
+        <div class="input-group">
+          <label for="website-url">Website URL</label>
+          <input type="url" id="website-url" placeholder="https://example.com" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="analysis-type">Analysis Type</label>
+          <select id="analysis-type">
+            <option value="comprehensive">Comprehensive Neurological Analysis</option>
+            <option value="cognitive-load">Cognitive Load Analysis</option>
+            <option value="eye-tracking">Eye-Tracking Optimization</option>
+            <option value="attention-span">Attention Span Analysis</option>
+            <option value="memory-retention">Memory Retention Analysis</option>
+            <option value="neurodiversity">Neurodiversity Accessibility</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label>Neurodiversity Considerations</label>
+          <div class="neurodiversity-options">
+            <div class="neurodiversity-option">
+              <input type="checkbox" id="adhd" value="adhd">
+              <label for="adhd">ADHD Optimization</label>
+            </div>
+            <div class="neurodiversity-option">
+              <input type="checkbox" id="dyslexia" value="dyslexia">
+              <label for="dyslexia">Dyslexia Optimization</label>
+            </div>
+            <div class="neurodiversity-option">
+              <input type="checkbox" id="autism" value="autism">
+              <label for="autism">Autism Optimization</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="device-type">Target Device</label>
+          <select id="device-type">
+            <option value="desktop">Desktop</option>
+            <option value="tablet">Tablet</option>
+            <option value="mobile">Mobile</option>
+            <option value="all">All Devices</option>
+          </select>
+        </div>
+        
+        <button class="analyze-btn" onclick="analyzeWebsite()">
+          🧠 Analyze Neurological Optimization
+        </button>
+      </div>
+      
+      <!-- Loading Spinner -->
+      <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+        <p>Analyzing neurological patterns and cognitive load...</p>
+      </div>
+      
+      <!-- Results Container -->
+      <div class="results-container" id="results-container">
+        <h2 class="section-title">
+          <span class="brain-icon">📊</span>
+          Neurological Analysis Results
+        </h2>
+        
+        <div class="results-grid">
+          <div class="metric-card">
+            <div class="metric-value" id="cognitive-load-score">--</div>
+            <div class="metric-label">Cognitive Load Score</div>
+            <div class="metric-improvement" id="cognitive-load-improvement">--</div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-value" id="attention-retention-score">--</div>
+            <div class="metric-label">Attention Retention</div>
+            <div class="metric-improvement" id="attention-retention-improvement">--</div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-value" id="memory-optimization-score">--</div>
+            <div class="metric-label">Memory Optimization</div>
+            <div class="metric-improvement" id="memory-optimization-improvement">--</div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-value" id="neurodiversity-score">--</div>
+            <div class="metric-label">Neurodiversity Score</div>
+            <div class="metric-improvement" id="neurodiversity-improvement">--</div>
+          </div>
+        </div>
+        
+        <!-- Eye-Tracking Heatmap -->
+        <div class="heatmap-container">
+          <h3 class="detail-title">🎯 Predicted Eye-Tracking Heatmap</h3>
+          <div class="heatmap-placeholder" id="heatmap-placeholder">
+            Eye-tracking heatmap will be generated here
+          </div>
+        </div>
+        
+        <!-- Detailed Analysis -->
+        <div class="analysis-details">
+          <div class="detail-section">
+            <h3 class="detail-title">🧠 Cognitive Load Analysis</h3>
+            <div id="cognitive-analysis-details">
+              <p>Detailed cognitive load analysis will appear here...</p>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 class="detail-title">👁️ Eye-Tracking Insights</h3>
+            <div id="eye-tracking-details">
+              <p>Eye-tracking optimization insights will appear here...</p>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 class="detail-title">🎯 Attention Flow Analysis</h3>
+            <div id="attention-flow-details">
+              <p>Attention flow analysis will appear here...</p>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 class="detail-title">🧩 Neurodiversity Optimization</h3>
+            <div id="neurodiversity-details">
+              <p>Neurodiversity optimization recommendations will appear here...</p>
+            </div>
+          </div>
+          
+          <div class="detail-section">
+            <h3 class="detail-title">💡 Optimization Recommendations</h3>
+            <ul class="recommendations-list" id="recommendations-list">
+              <!-- Recommendations will be populated here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Features Overview -->
+      <div class="analyzer-section">
+        <h2 class="section-title">
+          <span class="brain-icon">⚡</span>
+          Neurological SEO Features
+        </h2>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">👁️</div>
+            <div class="feature-title">Eye-Tracking Optimization</div>
+            <div class="feature-description">
+              Optimize content placement based on natural eye movement patterns and visual attention research.
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <div class="feature-title">Cognitive Load Reduction</div>
+            <div class="feature-description">
+              Reduce mental effort required to process information using cognitive psychology principles.
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <div class="feature-title">Attention Span Analytics</div>
+            <div class="feature-description">
+              Analyze and optimize for sustained attention and flow state induction.
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <div class="feature-title">Neurodiversity Support</div>
+            <div class="feature-description">
+              ADHD, dyslexia, and autism-friendly optimizations for inclusive design.
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🧮</div>
+            <div class="feature-title">Memory Enhancement</div>
+            <div class="feature-description">
+              Improve information retention using neuroscience-based memory techniques.
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">Real-Time Analytics</div>
+            <div class="feature-description">
+              Live cognitive load monitoring and dynamic optimization adjustments.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Neurological SEO Analyzer JavaScript
+    
+    async function analyzeWebsite() {
+      const url = document.getElementById('website-url').value;
+      const analysisType = document.getElementById('analysis-type').value;
+      const deviceType = document.getElementById('device-type').value;
+      
+      if (!url) {
+        alert('Please enter a website URL');
+        return;
+      }
+      
+      // Get neurodiversity options
+      const neurodiversityOptions = [];
+      if (document.getElementById('adhd').checked) neurodiversityOptions.push('adhd');
+      if (document.getElementById('dyslexia').checked) neurodiversityOptions.push('dyslexia');
+      if (document.getElementById('autism').checked) neurodiversityOptions.push('autism');
+      
+      // Show loading spinner
+      document.getElementById('loading-spinner').style.display = 'block';
+      document.getElementById('results-container').style.display = 'none';
+      
+      // Simulate analysis (in real implementation, this would call the actual API)
+      setTimeout(() => {
+        displayResults(url, analysisType, deviceType, neurodiversityOptions);
+      }, 3000);
+    }
+    
+    function displayResults(url, analysisType, deviceType, neurodiversityOptions) {
+      // Hide loading spinner
+      document.getElementById('loading-spinner').style.display = 'none';
+      
+      // Generate simulated results (in real implementation, these would come from actual analysis)
+      const results = generateSimulatedResults(url, analysisType, deviceType, neurodiversityOptions);
+      
+      // Update metric cards
+      document.getElementById('cognitive-load-score').textContent = results.cognitiveLoadScore + '/100';
+      document.getElementById('cognitive-load-improvement').textContent = '+' + results.cognitiveLoadImprovement + '% potential improvement';
+      
+      document.getElementById('attention-retention-score').textContent = results.attentionRetentionScore + '/100';
+      document.getElementById('attention-retention-improvement').textContent = '+' + results.attentionRetentionImprovement + '% potential improvement';
+      
+      document.getElementById('memory-optimization-score').textContent = results.memoryOptimizationScore + '/100';
+      document.getElementById('memory-optimization-improvement').textContent = '+' + results.memoryOptimizationImprovement + '% potential improvement';
+      
+      document.getElementById('neurodiversity-score').textContent = results.neurodiversityScore + '/100';
+      document.getElementById('neurodiversity-improvement').textContent = '+' + results.neurodiversityImprovement + '% potential improvement';
+      
+      // Update detailed analysis
+      updateDetailedAnalysis(results);
+      
+      // Update recommendations
+      updateRecommendations(results.recommendations);
+      
+      // Show results
+      document.getElementById('results-container').style.display = 'block';
+    }
+    
+    function generateSimulatedResults(url, analysisType, deviceType, neurodiversityOptions) {
+      // Simulate realistic results based on input parameters
+      const baseScore = Math.floor(Math.random() * 30) + 50; // 50-80 base score
+      
+      return {
+        cognitiveLoadScore: baseScore + Math.floor(Math.random() * 20),
+        cognitiveLoadImprovement: Math.floor(Math.random() * 40) + 20,
+        attentionRetentionScore: baseScore + Math.floor(Math.random() * 25),
+        attentionRetentionImprovement: Math.floor(Math.random() * 60) + 30,
+        memoryOptimizationScore: baseScore + Math.floor(Math.random() * 15),
+        memoryOptimizationImprovement: Math.floor(Math.random() * 50) + 25,
+        neurodiversityScore: neurodiversityOptions.length > 0 ? baseScore - 20 : baseScore + 10,
+        neurodiversityImprovement: neurodiversityOptions.length > 0 ? Math.floor(Math.random() * 80) + 40 : Math.floor(Math.random() * 30) + 10,
+        recommendations: generateRecommendations(analysisType, neurodiversityOptions)
+      };
+    }
+    
+    function updateDetailedAnalysis(results) {
+      document.getElementById('cognitive-analysis-details').innerHTML = `
+        <p><strong>Information Density:</strong> High - Content contains dense information that may overwhelm working memory</p>
+        <p><strong>Visual Complexity:</strong> Medium - Visual elements are moderately complex but manageable</p>
+        <p><strong>Processing Load:</strong> ${results.cognitiveLoadScore > 70 ? 'Optimized' : 'Needs Improvement'} - Current cognitive load is ${results.cognitiveLoadScore}/100</p>
+      `;
+      
+      document.getElementById('eye-tracking-details').innerHTML = `
+        <p><strong>Scanning Pattern:</strong> F-pattern detected - Users follow typical left-to-right, top-to-bottom scanning</p>
+        <p><strong>Attention Hotspots:</strong> Top-left quadrant receives 65% of initial attention</p>
+        <p><strong>Fixation Duration:</strong> Average 250ms - Within optimal range for content comprehension</p>
+      `;
+      
+      document.getElementById('attention-flow-details').innerHTML = `
+        <p><strong>Attention Retention:</strong> ${results.attentionRetentionScore}/100 - ${results.attentionRetentionScore > 70 ? 'Good' : 'Needs Improvement'}</p>
+        <p><strong>Flow State Potential:</strong> Medium - Content structure supports sustained engagement</p>
+        <p><strong>Distraction Factors:</strong> 3 elements identified that may break attention flow</p>
+      `;
+      
+      document.getElementById('neurodiversity-details').innerHTML = `
+        <p><strong>ADHD Optimization:</strong> ${results.neurodiversityScore > 60 ? 'Good' : 'Needs Improvement'} - Attention management features present</p>
+        <p><strong>Dyslexia Support:</strong> ${results.neurodiversityScore > 60 ? 'Good' : 'Needs Improvement'} - Font and spacing optimization needed</p>
+        <p><strong>Autism Accessibility:</strong> ${results.neurodiversityScore > 60 ? 'Good' : 'Needs Improvement'} - Sensory considerations implemented</p>
+      `;
+    }
+    
+    function generateRecommendations(analysisType, neurodiversityOptions) {
+      const recommendations = [
+        {
+          priority: 'high',
+          title: 'Reduce Cognitive Load',
+          description: 'Break content into smaller, digestible chunks using the 7±2 rule for working memory optimization.'
+        },
+        {
+          priority: 'high',
+          title: 'Optimize Eye-Tracking Flow',
+          description: 'Restructure content layout to follow natural F-pattern scanning for improved visual hierarchy.'
+        },
+        {
+          priority: 'medium',
+          title: 'Enhance Attention Retention',
+          description: 'Add strategic visual breaks and attention anchors to maintain sustained focus.'
+        }
+      ];
+      
+      if (neurodiversityOptions.includes('adhd')) {
+        recommendations.push({
+          priority: 'high',
+          title: 'ADHD Optimization',
+          description: 'Implement attention management features including focus indicators and distraction reduction.'
+        });
+      }
+      
+      if (neurodiversityOptions.includes('dyslexia')) {
+        recommendations.push({
+          priority: 'medium',
+          title: 'Dyslexia Support',
+          description: 'Apply dyslexia-friendly fonts, increased line spacing, and high contrast color schemes.'
+        });
+      }
+      
+      if (neurodiversityOptions.includes('autism')) {
+        recommendations.push({
+          priority: 'medium',
+          title: 'Autism Accessibility',
+          description: 'Reduce sensory overload through simplified design and predictable navigation patterns.'
+        });
+      }
+      
+      return recommendations;
+    }
+    
+    function updateRecommendations(recommendations) {
+      const recommendationsList = document.getElementById('recommendations-list');
+      recommendationsList.innerHTML = '';
+      
+      recommendations.forEach(rec => {
+        const listItem = document.createElement('li');
+        listItem.className = `recommendation-item ${rec.priority}`;
+        listItem.innerHTML = `
+          <div class="recommendation-title">${rec.title}</div>
+          <div class="recommendation-description">${rec.description}</div>
+        `;
+        recommendationsList.appendChild(listItem);
+      });
+    }
+    
+    // Initialize the analyzer
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🧠 Neurological SEO Analyzer initialized');
+      console.log('Phase 5: Neurological SEO & Cognitive Optimization - ACTIVE');
+    });
+  </script>
+</body>
+</html>
