@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Developer Resources - Safari Reader Mode & Apple Intelligence API - SurfaceScore</title>
+  <meta name="title" content="Developer Resources - Safari Reader Mode & Apple Intelligence API - SurfaceScore">
+  <meta name="description" content="Comprehensive developer resources for Safari Reader Mode optimization. API documentation, code examples, testing tools, and integration guides for Apple Intelligence compatibility.">
+  <meta name="keywords" content="Safari Reader mode API, Apple Intelligence developer tools, Safari optimization SDK, Reader mode testing API, Apple Intelligence integration, developer documentation">
+  <meta name="author" content="SurfaceScore">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://surfacescore.com/developer-resources.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://surfacescore.com/developer-resources.html">
+  <meta property="og:title" content="Developer Resources - Safari Reader Mode & Apple Intelligence API - SurfaceScore">
+  <meta property="og:description" content="Comprehensive developer resources for Safari Reader Mode optimization. API documentation, code examples, and integration guides.">
+  <meta property="og:image" content="https://surfacescore.com/developer-resources-og.png">
+  <meta property="og:site_name" content="SurfaceScore">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://surfacescore.com/developer-resources.html">
+  <meta property="twitter:title" content="Developer Resources - Safari Reader Mode & Apple Intelligence API - SurfaceScore">
+  <meta property="twitter:description" content="Comprehensive developer resources for Safari Reader Mode optimization. API documentation, code examples, and integration guides.">
+  <meta property="twitter:image" content="https://surfacescore.com/developer-resources-twitter.png">
+  
+  <!-- Apple Intelligence optimization meta tags -->
+  <meta name="apple-intelligence-content-type" content="technical-documentation">
+  <meta name="apple-intelligence-primary-topic" content="Safari Reader mode developer resources">
+  <meta name="apple-intelligence-content-depth" content="comprehensive">
+  <meta name="apple-intelligence-audience" content="developers">
+  <meta name="apple-intelligence-summary" content="Complete developer documentation for Safari Reader Mode optimization API, code examples, and Apple Intelligence integration guides">
+  <meta name="apple-intelligence-keywords" content="API documentation, Safari optimization, Reader mode, Apple Intelligence, developer tools, SDK, integration">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Article Schema for Apple Intelligence Optimization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Developer Resources - Safari Reader Mode & Apple Intelligence API",
+    "description": "Comprehensive developer resources for Safari Reader Mode optimization. API documentation, code examples, testing tools, and integration guides for Apple Intelligence compatibility.",
+    "author": {
+      "@type": "Organization",
+      "name": "SurfaceScore",
+      "url": "https://surfacescore.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SurfaceScore",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://surfacescore.com/logo.png"
+      }
+    },
+    "datePublished": "2024-12-18",
+    "dateModified": "2024-12-18",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://surfacescore.com/developer-resources.html"
+    },
+    "articleSection": "Developer Documentation",
+    "keywords": ["Safari Reader mode API", "Apple Intelligence developer tools", "Safari optimization SDK", "developer documentation"],
+    "wordCount": 3200,
+    "timeRequired": "PT18M",
+    "proficiencyLevel": "Expert",
+    "dependencies": ["JavaScript", "HTML5", "REST API"],
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "SurfaceScore API",
+      "description": "Developer tools and API for Safari Reader Mode optimization and Apple Intelligence compatibility testing"
+    }
+  }
+  </script>
+  
+  <!-- SoftwareSourceCode Schema for API -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "SurfaceScore API",
+    "description": "REST API for Safari Reader Mode compatibility testing and Apple Intelligence optimization analysis",
+    "programmingLanguage": "JavaScript",
+    "runtimePlatform": "Web Browser",
+    "codeRepository": "https://github.com/surfacescore/api",
+    "license": "https://opensource.org/licenses/MIT",
+    "version": "1.0.0",
+    "author": {
+      "@type": "Organization",
+      "name": "SurfaceScore"
+    }
+  }
+  </script>
+  
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://surfacescore.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Resources",
+        "item": "https://surfacescore.com/developer-resources.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
+  <header>
+    <div class="header-top">
+      <h1>Surface<span class="accent">Score</span></h1>
+      <nav aria-label="Main navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/help.html" class="nav-link">Help</a>
+        <a href="/safari-optimization-guide.html" class="nav-link">Safari Guide</a>
+        <a href="/case-studies.html" class="nav-link">Case Studies</a>
+        <a href="/developer-resources.html" class="nav-link" aria-current="page">Developer Resources</a>
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙/☀️</button>
+        <button id="contrastToggle" aria-label="Toggle high contrast">◐ Contrast</button>
+      </nav>
+    </div>
+    <!-- Donation bar moved to aside for better Reader Mode compatibility -->
+    <aside class="donation-bar" role="complementary" aria-label="Support options">
+      <div class="donation-buttons">
+        <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=QAMPE578H96LY', '_blank', 'noopener,noreferrer')" 
+                class="donate-btn primary">
+          🎯 One-Time Donation
+        </button>
+        <button onclick="window.open('https://www.paypal.com/donate?hosted_button_id=ZHZQVNLQL4UQE', '_blank', 'noopener,noreferrer')" 
+                class="donate-btn secondary">
+          🔄 Monthly Support
+        </button>
+      </div>
+    </aside>
+  </header>
+  
+  <main id="main-content" role="main">
+    <article itemscope itemtype="https://schema.org/TechArticle">
+      <header>
+        <h1 id="developer-resources" itemprop="headline">Developer Resources</h1>
+        <p class="hero-text" itemprop="description">Comprehensive developer documentation, API references, and integration guides for Safari Reader Mode optimization and Apple Intelligence compatibility testing.</p>
+        <div class="article-meta">
+          <meta itemprop="datePublished" content="2024-12-18">
+          <meta itemprop="dateModified" content="2024-12-18">
+          <meta itemprop="author" content="SurfaceScore">
+          <div class="reading-time">
+            <span>⚡ 18 min read</span>
+            <span>🎯 Expert level</span>
+            <span>💻 3,200 words</span>
+          </div>
+        </div>
+      </header>
+      
+      <section id="overview">
+        <h2>Developer Tools Overview</h2>
+        <p>SurfaceScore provides a comprehensive suite of developer tools for integrating Safari Reader Mode optimization and Apple Intelligence compatibility testing into your development workflow.</p>
+        
+        <div class="tools-grid">
+          <div class="tool-card">
+            <h3>🔌 REST API</h3>
+            <p>Programmatic access to SurfaceScore analysis engine</p>
+            <ul>
+              <li>Real-time compatibility scoring</li>
+              <li>Detailed optimization recommendations</li>
+              <li>Batch analysis capabilities</li>
+            </ul>
+          </div>
+          
+          <div class="tool-card">
+            <h3>📚 JavaScript SDK</h3>
+            <p>Client-side library for browser integration</p>
+            <ul>
+              <li>Real-time Reader Mode testing</li>
+              <li>Content extraction simulation</li>
+              <li>Performance monitoring</li>
+            </ul>
+          </div>
+          
+          <div class="tool-card">
+            <h3>🔧 CLI Tools</h3>
+            <p>Command-line interface for CI/CD integration</p>
+            <ul>
+              <li>Automated testing pipelines</li>
+              <li>Build process integration</li>
+              <li>Continuous monitoring</li>
+            </ul>
+          </div>
+          
+          <div class="tool-card">
+            <h3>🎨 Browser Extension</h3>
+            <p>Development tools for real-time testing</p>
+            <ul>
+              <li>Live Reader Mode preview</li>
+              <li>Content structure analysis</li>
+              <li>Debugging assistance</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section id="api-documentation">
+        <h2>API Documentation</h2>
+        
+        <h3>Getting Started</h3>
+        <p>The SurfaceScore API provides programmatic access to our Safari Reader Mode and Apple Intelligence compatibility analysis engine.</p>
+        
+        <div class="api-info">
+          <h4>Base URL</h4>
+          <code>https://api.surfacescore.com/v1</code>
+          
+          <h4>Authentication</h4>
+          <p>API requests require authentication using an API key in the request header:</p>
+          <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+          
+          <h4>Rate Limits</h4>
+          <ul>
+            <li><strong>Free Tier:</strong> 100 requests per hour</li>
+            <li><strong>Pro Tier:</strong> 1,000 requests per hour</li>
+            <li><strong>Enterprise:</strong> Custom limits</li>
+          </ul>
+        </div>
+        
+        <h3>Endpoints</h3>
+        
+        <h4>Analyze Website</h4>
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method post">POST</span>
+            <span class="url">/analyze</span>
+          </div>
+          
+          <p>Analyzes a website for Safari Reader Mode and Apple Intelligence compatibility.</p>
+          
+          <h5>Request Body</h5>
+          <pre><code>{
+  "url": "https://example.com/article",
+  "options": {
+    "includeRecommendations": true,
+    "detailedAnalysis": true,
+    "checkAccessibility": true
+  }
+}</code></pre>
+          
+          <h5>Response</h5>
+          <pre><code>{
+  "success": true,
+  "data": {
+    "url": "https://example.com/article",
+    "timestamp": "2024-12-18T10:30:00Z",
+    "scores": {
+      "overall": 85,
+      "readerMode": 92,
+      "appleIntelligence": 78,
+      "structuredData": 88,
+      "accessibility": 95
+    },
+    "analysis": {
+      "readerMode": {
+        "contentExtracted": true,
+        "headingStructure": "excellent",
+        "semanticMarkup": "good",
+        "issues": []
+      },
+      "appleIntelligence": {
+        "summarizable": true,
+        "topicClarity": "high",
+        "contentDepth": "comprehensive",
+        "metadataComplete": true
+      },
+      "structuredData": {
+        "schemas": ["Article", "BreadcrumbList"],
+        "validation": "passed",
+        "coverage": 88
+      }
+    },
+    "recommendations": [
+      {
+        "category": "readerMode",
+        "priority": "high",
+        "title": "Improve heading hierarchy",
+        "description": "Use proper H1-H6 progression",
+        "implementation": "Replace div.title with h2 elements"
+      }
+    ]
+  }
+}</code></pre>
+        </div>
+        
+        <h4>Batch Analysis</h4>
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method post">POST</span>
+            <span class="url">/analyze/batch</span>
+          </div>
+          
+          <p>Analyzes multiple URLs in a single request.</p>
+          
+          <h5>Request Body</h5>
+          <pre><code>{
+  "urls": [
+    "https://example.com/article-1",
+    "https://example.com/article-2",
+    "https://example.com/article-3"
+  ],
+  "options": {
+    "includeRecommendations": false,
+    "detailedAnalysis": false
+  }
+}</code></pre>
+          
+          <h5>Response</h5>
+          <pre><code>{
+  "success": true,
+  "data": {
+    "results": [
+      {
+        "url": "https://example.com/article-1",
+        "scores": { "overall": 85, "readerMode": 92 },
+        "status": "completed"
+      },
+      {
+        "url": "https://example.com/article-2", 
+        "scores": { "overall": 76, "readerMode": 84 },
+        "status": "completed"
+      }
+    ],
+    "summary": {
+      "total": 3,
+      "completed": 2,
+      "failed": 1,
+      "averageScore": 80.5
+    }
+  }
+}</code></pre>
+        </div>
+        
+        <h4>Get Analysis History</h4>
+        <div class="endpoint">
+          <div class="endpoint-header">
+            <span class="method get">GET</span>
+            <span class="url">/history</span>
+          </div>
+          
+          <p>Retrieves analysis history for your account.</p>
+          
+          <h5>Query Parameters</h5>
+          <ul>
+            <li><code>limit</code> - Number of results (default: 50, max: 200)</li>
+            <li><code>offset</code> - Pagination offset</li>
+            <li><code>url</code> - Filter by specific URL</li>
+            <li><code>from</code> - Start date (ISO 8601)</li>
+            <li><code>to</code> - End date (ISO 8601)</li>
+          </ul>
+          
+          <h5>Example Request</h5>
+          <pre><code>GET /history?limit=10&url=example.com</code></pre>
+        </div>
+      </section>
+      
+      <section id="javascript-sdk">
+        <h2>JavaScript SDK</h2>
+        
+        <h3>Installation</h3>
+        <div class="code-tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="npm">npm</button>
+            <button class="tab-btn" data-tab="yarn">yarn</button>
+            <button class="tab-btn" data-tab="cdn">CDN</button>
+          </div>
+          
+          <div class="tab-content active" id="npm">
+            <pre><code>npm install @surfacescore/sdk</code></pre>
+          </div>
+          
+          <div class="tab-content" id="yarn">
+            <pre><code>yarn add @surfacescore/sdk</code></pre>
+          </div>
+          
+          <div class="tab-content" id="cdn">
+            <pre><code>&lt;script src="https://cdn.surfacescore.com/sdk/v1/surfacescore.min.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+        
+        <h3>Basic Usage</h3>
+        <pre><code>import SurfaceScore from '@surfacescore/sdk';
+
+// Initialize with your API key
+const surfaceScore = new SurfaceScore({
+  apiKey: 'your-api-key-here',
+  environment: 'production' // or 'sandbox'
+});
+
+// Analyze current page
+const analysis = await surfaceScore.analyzePage();
+console.log('Overall score:', analysis.scores.overall);
+
+// Analyze specific URL
+const result = await surfaceScore.analyze('https://example.com/article');
+console.log('Reader Mode score:', result.scores.readerMode);</code></pre>
+        
+        <h3>Real-time Reader Mode Testing</h3>
+        <pre><code>// Test Reader Mode compatibility in real-time
+const readerModeTest = surfaceScore.createReaderModeTest({
+  container: document.querySelector('#preview'),
+  showIssues: true,
+  highlightProblems: true
+});
+
+// Start monitoring
+readerModeTest.start();
+
+// Get live feedback
+readerModeTest.on('issue', (issue) => {
+  console.log('Reader Mode issue detected:', issue);
+});
+
+// Get compatibility score
+const score = readerModeTest.getScore();
+console.log('Live compatibility score:', score);</code></pre>
+        
+        <h3>Content Structure Analysis</h3>
+        <pre><code>// Analyze content structure
+const structureAnalysis = await surfaceScore.analyzeStructure({
+  element: document.querySelector('article'),
+  checkHeadings: true,
+  checkSemantics: true,
+  checkAccessibility: true
+});
+
+console.log('Structure analysis:', structureAnalysis);
+
+// Get specific recommendations
+const recommendations = structureAnalysis.getRecommendations();
+recommendations.forEach(rec => {
+  console.log(`${rec.priority}: ${rec.title}`);
+});</code></pre>
+        
+        <h3>Performance Monitoring</h3>
+        <pre><code>// Monitor Reader Mode performance
+const monitor = surfaceScore.createMonitor({
+  interval: 30000, // Check every 30 seconds
+  threshold: 80,   // Alert if score drops below 80
+  autoFix: false   // Don't auto-apply fixes
+});
+
+monitor.on('scoreChange', (newScore, oldScore) => {
+  console.log(`Score changed: ${oldScore} → ${newScore}`);
+});
+
+monitor.on('threshold', (score) => {
+  console.warn(`Score dropped below threshold: ${score}`);
+});
+
+monitor.start();</code></pre>
+      </section>
+      
+      <section id="cli-tools">
+        <h2>CLI Tools</h2>
+        
+        <h3>Installation</h3>
+        <pre><code># Install globally
+npm install -g @surfacescore/cli
+
+# Or use npx
+npx @surfacescore/cli --version</code></pre>
+        
+        <h3>Configuration</h3>
+        <pre><code># Set up your API key
+surfacescore config set apiKey YOUR_API_KEY
+
+# Set default options
+surfacescore config set defaultOptions.includeRecommendations true</code></pre>
+        
+        <h3>Basic Commands</h3>
+        
+        <h4>Analyze Single URL</h4>
+        <pre><code># Basic analysis
+surfacescore analyze https://example.com/article
+
+# Detailed analysis with recommendations
+surfacescore analyze https://example.com/article --detailed --recommendations
+
+# Output to file
+surfacescore analyze https://example.com/article --output report.json</code></pre>
+        
+        <h4>Batch Analysis</h4>
+        <pre><code># Analyze multiple URLs from file
+surfacescore batch urls.txt
+
+# Analyze sitemap
+surfacescore sitemap https://example.com/sitemap.xml
+
+# Analyze with custom options
+surfacescore batch urls.txt --format csv --output results.csv</code></pre>
+        
+        <h4>CI/CD Integration</h4>
+        <pre><code># Check if score meets threshold
+surfacescore check https://example.com/article --threshold 80
+
+# Exit with error code if threshold not met
+if ! surfacescore check $URL --threshold 85 --quiet; then
+  echo "Safari compatibility check failed"
+  exit 1
+fi</code></pre>
+        
+        <h3>GitHub Actions Integration</h3>
+        <pre><code>name: Safari Reader Mode Check
+on: [push, pull_request]
+
+jobs:
+  safari-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: Install SurfaceScore CLI
+        run: npm install -g @surfacescore/cli
+        
+      - name: Check Safari compatibility
+        env:
+          SURFACESCORE_API_KEY: ${{ secrets.SURFACESCORE_API_KEY }}
+        run: |
+          surfacescore check ${{ github.event.deployment.payload.web_url }} \
+            --threshold 85 \
+            --format github-actions</code></pre>
+      </section>
+      
+      <section id="browser-extension">
+        <h2>Browser Extension</h2>
+        
+        <h3>Installation</h3>
+        <p>Install the SurfaceScore Developer Extension from:</p>
+        <ul>
+          <li><a href="https://chrome.google.com/webstore/detail/surfacescore" target="_blank" rel="noopener">Chrome Web Store</a></li>
+          <li><a href="https://addons.mozilla.org/firefox/addon/surfacescore" target="_blank" rel="noopener">Firefox Add-ons</a></li>
+          <li><a href="https://apps.apple.com/app/surfacescore/id123456789" target="_blank" rel="noopener">Safari Extensions</a></li>
+        </ul>
+        
+        <h3>Features</h3>
+        
+        <h4>Live Reader Mode Preview</h4>
+        <p>See how your content appears in Safari Reader Mode in real-time:</p>
+        <ul>
+          <li>✅ Side-by-side comparison with original page</li>
+          <li>✅ Highlight extracted content</li>
+          <li>✅ Show content that's excluded</li>
+          <li>✅ Test different viewport sizes</li>
+        </ul>
+        
+        <h4>Content Structure Analysis</h4>
+        <p>Visual analysis of your page structure:</p>
+        <ul>
+          <li>🏗️ Semantic HTML element highlighting</li>
+          <li>📊 Heading hierarchy visualization</li>
+          <li>🎯 Content-to-noise ratio analysis</li>
+          <li>⚠️ Issue identification and suggestions</li>
+        </ul>
+        
+        <h4>Apple Intelligence Simulation</h4>
+        <p>Preview how Apple Intelligence interprets your content:</p>
+        <ul>
+          <li>📝 Generated content summaries</li>
+          <li>🔍 Key topic identification</li>
+          <li>📊 Content quality scoring</li>
+          <li>💡 Optimization suggestions</li>
+        </ul>
+        
+        <h3>Usage</h3>
+        <ol>
+          <li>Navigate to any webpage</li>
+          <li>Click the SurfaceScore extension icon</li>
+          <li>Choose your analysis type:
+            <ul>
+              <li><strong>Quick Scan</strong> - Basic compatibility check</li>
+              <li><strong>Deep Analysis</strong> - Comprehensive review</li>
+              <li><strong>Reader Mode Preview</strong> - Live preview</li>
+            </ul>
+          </li>
+          <li>Review results and implement suggestions</li>
+        </ol>
+      </section>
+      
+      <section id="code-examples">
+        <h2>Code Examples</h2>
+        
+        <h3>React Integration</h3>
+        <pre><code>import React, { useEffect, useState } from 'react';
+import SurfaceScore from '@surfacescore/sdk';
+
+const SafariCompatibilityChecker = ({ url }) => {
+  const [score, setScore] = useState(null);
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    const checkCompatibility = async () => {
+      setLoading(true);
+      try {
+        const surfaceScore = new SurfaceScore({
+          apiKey: process.env.REACT_APP_SURFACESCORE_API_KEY
+        });
+        
+        const result = await surfaceScore.analyze(url);
+        setScore(result.scores);
+      } catch (error) {
+        console.error('Analysis failed:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    if (url) {
+      checkCompatibility();
+    }
+  }, [url]);
+  
+  if (loading) return &lt;div&gt;Analyzing Safari compatibility...&lt;/div&gt;;
+  if (!score) return null;
+  
+  return (
+    &lt;div className="safari-score"&gt;
+      &lt;h3&gt;Safari Compatibility Score&lt;/h3&gt;
+      &lt;div className="score-display"&gt;
+        &lt;span className="overall-score"&gt;{score.overall}/100&lt;/span&gt;
+        &lt;div className="breakdown"&gt;
+          &lt;div&gt;Reader Mode: {score.readerMode}/100&lt;/div&gt;
+          &lt;div&gt;Apple Intelligence: {score.appleIntelligence}/100&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+        
+        <h3>WordPress Plugin Integration</h3>
+        <pre><code>&lt;?php
+// WordPress plugin integration example
+
+class SurfaceScorePlugin {
+    private $api_key;
+    
+    public function __construct() {
+        $this->api_key = get_option('surfacescore_api_key');
+        add_action('save_post', array($this, 'analyze_post'));
+        add_meta_box('surfacescore', 'Safari Compatibility', 
+                    array($this, 'meta_box_callback'), 'post');
+    }
+    
+    public function analyze_post($post_id) {
+        if (wp_is_post_revision($post_id)) return;
+        
+        $url = get_permalink($post_id);
+        $response = wp_remote_post('https://api.surfacescore.com/v1/analyze', array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->api_key,
+                'Content-Type' => 'application/json'
+            ),
+            'body' => json_encode(array(
+                'url' => $url,
+                'options' => array('includeRecommendations' => true)
+            ))
+        ));
+        
+        if (!is_wp_error($response)) {
+            $data = json_decode(wp_remote_retrieve_body($response), true);
+            update_post_meta($post_id, '_surfacescore_data', $data);
+        }
+    }
+    
+    public function meta_box_callback($post) {
+        $data = get_post_meta($post->ID, '_surfacescore_data', true);
+        if ($data && isset($data['scores'])) {
+            echo '&lt;div class="surfacescore-results"&gt;';
+            echo '&lt;p&gt;Overall Score: ' . $data['scores']['overall'] . '/100&lt;/p&gt;';
+            echo '&lt;p&gt;Reader Mode: ' . $data['scores']['readerMode'] . '/100&lt;/p&gt;';
+            echo '&lt;/div&gt;';
+        } else {
+            echo '&lt;p&gt;No analysis data available. Save post to analyze.&lt;/p&gt;';
+        }
+    }
+}
+
+new SurfaceScorePlugin();
+?&gt;</code></pre>
+        
+        <h3>Node.js Server Integration</h3>
+        <pre><code>const express = require('express');
+const SurfaceScore = require('@surfacescore/sdk');
+
+const app = express();
+const surfaceScore = new SurfaceScore({
+  apiKey: process.env.SURFACESCORE_API_KEY
+});
+
+app.use(express.json());
+
+// Middleware to check Safari compatibility
+app.use('/api/content', async (req, res, next) => {
+  if (req.method === 'POST' && req.body.url) {
+    try {
+      const analysis = await surfaceScore.analyze(req.body.url);
+      
+      // Add compatibility score to response
+      req.safariScore = analysis.scores;
+      
+      // Log low scores for monitoring
+      if (analysis.scores.overall < 80) {
+        console.warn(`Low Safari score for ${req.body.url}: ${analysis.scores.overall}`);
+      }
+    } catch (error) {
+      console.error('Safari analysis failed:', error);
+    }
+  }
+  next();
+});
+
+// API endpoint with Safari score
+app.post('/api/content', (req, res) => {
+  res.json({
+    success: true,
+    data: req.body,
+    safariCompatibility: req.safariScore || null
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server running with Safari compatibility checking');
+});</code></pre>
+      </section>
+      
+      <section id="testing-debugging">
+        <h2>Testing & Debugging</h2>
+        
+        <h3>Local Development Testing</h3>
+        <pre><code>// Test local development server
+const surfaceScore = new SurfaceScore({
+  apiKey: 'your-api-key',
+  environment: 'sandbox'
+});
+
+// Use ngrok or similar for local testing
+const localUrl = 'https://abc123.ngrok.io/article';
+const result = await surfaceScore.analyze(localUrl);
+
+console.log('Local development score:', result.scores.overall);</code></pre>
+        
+        <h3>Debug Mode</h3>
+        <pre><code>// Enable debug mode for detailed logging
+const surfaceScore = new SurfaceScore({
+  apiKey: 'your-api-key',
+  debug: true,
+  logLevel: 'verbose'
+});
+
+// Debug specific issues
+const debugAnalysis = await surfaceScore.analyze(url, {
+  debug: {
+    captureScreenshots: true,
+    logContentExtraction: true,
+    validateStructuredData: true
+  }
+});
+
+console.log('Debug info:', debugAnalysis.debug);</code></pre>
+        
+        <h3>Common Issues & Solutions</h3>
+        
+        <div class="troubleshooting">
+          <h4>❌ Low Reader Mode Score</h4>
+          <p><strong>Symptoms:</strong> Content not extracted properly in Safari Reader Mode</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Use semantic HTML elements (<code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>)</li>
+            <li>Ensure proper heading hierarchy</li>
+            <li>Move non-content elements to <code>&lt;aside&gt;</code></li>
+            <li>Add <code>role="main"</code> to primary content area</li>
+          </ul>
+          
+          <h4>❌ Poor Apple Intelligence Score</h4>
+          <p><strong>Symptoms:</strong> Content not summarized correctly by AI</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Add comprehensive structured data</li>
+            <li>Use Apple Intelligence meta tags</li>
+            <li>Improve content depth and clarity</li>
+            <li>Ensure clear topic definition</li>
+          </ul>
+          
+          <h4>❌ API Rate Limit Errors</h4>
+          <p><strong>Symptoms:</strong> 429 Too Many Requests responses</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Implement exponential backoff retry logic</li>
+            <li>Cache analysis results locally</li>
+            <li>Use batch analysis for multiple URLs</li>
+            <li>Upgrade to higher tier plan</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="community-support">
+        <h2>Community & Support</h2>
+        
+        <h3>Open Source</h3>
+        <p>SurfaceScore is committed to open source development:</p>
+        <ul>
+          <li>🔗 <a href="https://github.com/surfacescore/sdk" target="_blank" rel="noopener">JavaScript SDK</a> - MIT License</li>
+          <li>🔗 <a href="https://github.com/surfacescore/cli" target="_blank" rel="noopener">CLI Tools</a> - MIT License</li>
+          <li>🔗 <a href="https://github.com/surfacescore/browser-extension" target="_blank" rel="noopener">Browser Extension</a> - MIT License</li>
+          <li>🔗 <a href="https://github.com/surfacescore/examples" target="_blank" rel="noopener">Code Examples</a> - MIT License</li>
+        </ul>
+        
+        <h3>Community Resources</h3>
+        <ul>
+          <li>💬 <a href="https://discord.gg/surfacescore" target="_blank" rel="noopener">Discord Community</a></li>
+          <li>📚 <a href="https://docs.surfacescore.com" target="_blank" rel="noopener">Documentation</a></li>
+          <li>🐛 <a href="https://github.com/surfacescore/issues" target="_blank" rel="noopener">Bug Reports</a></li>
+          <li>💡 <a href="https://github.com/surfacescore/feature-requests" target="_blank" rel="noopener">Feature Requests</a></li>
+        </ul>
+        
+        <h3>Support Channels</h3>
+        <ul>
+          <li>📧 <strong>Email:</strong> <a href="mailto:developers@surfacescore.com">developers@surfacescore.com</a></li>
+          <li>💬 <strong>Live Chat:</strong> Available in developer dashboard</li>
+          <li>📞 <strong>Enterprise Support:</strong> Dedicated support for enterprise customers</li>
+          <li>📖 <strong>Documentation:</strong> Comprehensive guides and tutorials</li>
+        </ul>
+        
+        <h3>Contributing</h3>
+        <p>We welcome contributions from the developer community:</p>
+        <ol>
+          <li>Fork the repository</li>
+          <li>Create a feature branch</li>
+          <li>Make your changes</li>
+          <li>Add tests and documentation</li>
+          <li>Submit a pull request</li>
+        </ol>
+        
+        <div class="cta-section">
+          <h3>Ready to Get Started?</h3>
+          <p>Sign up for a free developer account and start integrating Safari Reader Mode optimization into your workflow.</p>
+          <a href="https://dashboard.surfacescore.com/signup" class="cta-button">Get API Key</a>
+        </div>
+      </section>
+    </article>
+  </main>
+  
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/help.html">Help</a></li>
+          <li><a href="/safari-optimization-guide.html">Safari Guide</a></li>
+          <li><a href="/case-studies.html">Case Studies</a></li>
+          <li><a href="/developer-resources.html">Developer Resources</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2024 SurfaceScore. Built for the modern web.</p>
+        <p>Safari & Apple Intelligence compatibility testing made simple.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

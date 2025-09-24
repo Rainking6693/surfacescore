@@ -28,6 +28,118 @@
   
   <link rel="stylesheet" href="style.css">
   
+  <!-- Article Schema for Apple Intelligence Optimization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Help & Documentation - SurfaceScore",
+    "description": "Get help using SurfaceScore. Learn how to test Safari Reader Mode compatibility, understand Apple Intelligence optimization, and improve your website's accessibility.",
+    "author": {
+      "@type": "Organization",
+      "name": "SurfaceScore",
+      "url": "https://surfacescore.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SurfaceScore",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://surfacescore.com/logo.png"
+      }
+    },
+    "datePublished": "2024-12-18",
+    "dateModified": "2024-12-18",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://surfacescore.com/help.html"
+    },
+    "articleSection": "Help",
+    "keywords": ["SurfaceScore help", "Safari Reader mode tutorial", "Apple Intelligence optimization guide", "website compatibility testing"]
+  }
+  </script>
+  
+  <!-- HowTo Schema for Getting Started Guide -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use SurfaceScore for Safari Reader Mode Testing",
+    "description": "Step-by-step guide to analyze your website's compatibility with Safari Reader Mode and Apple Intelligence using SurfaceScore.",
+    "image": "https://surfacescore.com/howto-image.png",
+    "totalTime": "PT5M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Website URL"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Web Browser"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "SurfaceScore Analyzer"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enter your URL",
+        "text": "Type or paste your website URL in the input field on the SurfaceScore homepage.",
+        "url": "https://surfacescore.com/#analyzer"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Click Analyze",
+        "text": "Hit the 'Analyze Website' button to start the compatibility check.",
+        "url": "https://surfacescore.com/#analyzer"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review Results",
+        "text": "Get detailed insights across four key areas: Safari Reader Mode, Apple Intelligence, Structured Data, and WCAG Compliance.",
+        "url": "https://surfacescore.com/help.html#understanding-scores"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Implement Changes",
+        "text": "Follow our recommendations to improve compatibility and re-test your website.",
+        "url": "https://surfacescore.com/help.html#common-issues"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://surfacescore.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Help",
+        "item": "https://surfacescore.com/help.html"
+      }
+    ]
+  }
+  </script>
+  
   <!-- FAQ Schema for Help Page -->
   <script type="application/ld+json">
   {
@@ -111,11 +223,16 @@
     </div>
   </header>
   
-  <main id="main-content">
-    <article>
+  <main id="main-content" role="main">
+    <article itemscope itemtype="https://schema.org/Article">
       <header>
-        <h2 id="help-documentation">Help & Documentation</h2>
-        <p class="hero-text">Everything you need to know about using SurfaceScore effectively.</p>
+        <h1 id="help-documentation" itemprop="headline">Help & Documentation</h1>
+        <p class="hero-text" itemprop="description">Everything you need to know about using SurfaceScore effectively.</p>
+        <div class="article-meta">
+          <meta itemprop="datePublished" content="2024-12-18">
+          <meta itemprop="dateModified" content="2024-12-18">
+          <meta itemprop="author" content="SurfaceScore">
+        </div>
       </header>
       
       <section id="getting-started">
